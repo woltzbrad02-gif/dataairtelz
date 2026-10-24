@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airtel - Loan Status</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        /* Pulse animation for the status icon ring */
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.4);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 12px rgba(217, 119, 6, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(217, 119, 6, 0);
+            }
+        }
+
+        .status-pulse {
+            animation: pulse-ring 2.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 text-gray-800">
+
+    <!-- HEADER WITH CENTERED AIRTEL LOGO -->
+    <header class="w-full max-w-[480px] bg-white rounded-2xl py-4 px-6 shadow-sm border border-gray-100 flex justify-center items-center mb-4">
+        <div class="h-10 flex items-center justify-center">
+            <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwKPIUOxpuuEY1j3YBezDsKGUqWQ8aZNoh7dFU4nzwiw&s=10" 
+                alt="Airtel Logo" 
+                class="h-10 object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/120x40/e11d48/ffffff?text=airtel';"
+            />
+        </div>
+    </header>
+
+    <!-- MAIN STATUS CARD -->
+    <main class="w-full max-w-[480px] bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 flex flex-col items-center text-center my-auto">
+        
+        <!-- PENDING CLOCK / HOURGLASS ICON -->
+        <div class="status-pulse w-20 h-20 bg-amber-50 rounded-full border-2 border-amber-200 flex items-center justify-center mb-5">
+            <span class="text-4xl">⏳</span>
+        </div>
+
+        <!-- STATUS BADGE & TITLE -->
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold tracking-wide uppercase mb-3">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+            Pending Verification
+        </div>
+
+        <h1 class="text-2xl font-extrabold text-gray-900 tracking-tight mb-2">
+            Pending Verification
+        </h1>
+
+        <!-- STATUS MESSAGE -->
+        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+            Your loan application has been received and is currently pending verification.
+        </p>
+
+        <!-- ALERT BOX (RED / WARNING) -->
+        <div class="w-full bg-red-50 border-l-4 border-red-500 p-4 rounded-xl text-left mb-5">
+            <div class="flex items-center gap-2 text-red-900 font-bold text-sm mb-1">
+                <svg class="w-5 h-5 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+                <span>Minimum Balance Requirement</span>
+            </div>
+            <p class="text-xs text-red-800 leading-relaxed">
+                Your account must have a minimum balance of <strong class="font-extrabold text-red-900">$30 USD</strong> (or equivalent in UGX) for loans to be processed.
+            </p>
+        </div>
+
+        <!-- INFO BOX -->
+        <div class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-left space-y-3 mb-6">
+            <div class="flex items-start gap-3">
+                <div class="p-2 bg-blue-50 text-blue-600 rounded-lg flex-shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 font-medium">Processing Time</p>
+                    <p class="text-xs sm:text-sm font-semibold text-slate-800">
+                        Loans will be processed within 12 hours.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-200 pt-3 flex items-start gap-3">
+                <div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg flex-shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 font-medium">Next Step</p>
+                    <p class="text-xs sm:text-sm font-semibold text-slate-800">
+                        Please login again after 6 hours to check your loan status.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRIMARY ACTION BUTTON (Redirects directly to index.html) -->
+        <a 
+            href="index.html"
+            onclick="window.location.href='index.html'; return true;"
+            class="w-full py-3.5 px-6 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold rounded-full shadow-lg shadow-red-500/30 active:scale-95 transition duration-200 text-sm tracking-wide block text-center"
+        >
+            BACK TO HOME
+        </a>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full max-w-[480px] text-center py-4 text-xs text-gray-400">
+        © 2026 Airtel. All rights reserved.
+    </footer>
+
+</body>
+
+</html>
